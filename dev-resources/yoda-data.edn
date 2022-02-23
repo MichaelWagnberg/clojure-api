@@ -1,0 +1,13 @@
+{:products
+ [{:art_nr "ART1"
+   :cost_price 100
+   :variants_count 2}
+  {:art_nr "ART2"
+   :cost_price 1050
+   :variants_count 5}
+  {:art_nr "ART3"
+   :cost_price 150
+   :variants_count 3}
+  {:art_nr "ART4"
+   :cost_price 375
+   :variants_count 7}]}

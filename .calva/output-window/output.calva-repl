@@ -18,6 +18,13 @@
 clj꞉clojure-api.core꞉> 
 ; Jack-in done.
 clj꞉clojure-api.core꞉> 
+; Evaluating file: user.clj
+#'user/stop
+clj꞉user꞉> 
 (start)
-#object[org.eclipse.jetty.server.Server 0x7711badc "Server@7711badc{STARTED}[9.4.31.v20200723]"]
-clj꞉clojure-api.core꞉> 
+:started
+clj꞉user꞉> 
+(stop)
+:stopped
+clj꞉user꞉> 
+; nREPL Connection was closed

@@ -1,0 +1,50 @@
+{:objects
+ {:Product
+  {:description "A product"
+   :fields
+   {:id {:type Int}
+    :art_nr {:type String}
+    :cost_price {:type Int}
+    :variants_count {:type Int}
+    :variants {:type (list Variant)
+               :description "List all variants belonging to this product"
+               :resolve :Product/variants}}}
+  :Variant
+  {:description "A variant"
+   :fields
+   {:id {:type Int}
+    :color {:type String}
+    :size {:type String}
+    :product_id {:type Int}
+    :article_number {:type String}
+    :variant_number {:type String}
+    :material_number {:type String}
+    :product {:type :Product
+              :description "Get product belonging to this variant"
+              :resolve :Variant/product}}}
+  }
+ :queries
+ {:product_by_art_nr
+  {:type :Product
+   :description "Select a Product by article number"
+   :args
+   {:art_nr {:type String}}
+   :resolve :query/product-by-art-nr}
+  
+  :variant_by_variant_number
+  {:type :Variant
+   :description "Select a Variant by variant number"
+   :args
+   {:variant_number {:type String}}
+   :resolve :query/variant-by-variant-number}
+  
+  :all_products
+  {:type (list Product)
+   :description "Gets all products"
+   :resolve :query/all-products}
+  
+  :all_variants
+  {:type (list Variant)
+   :description "Gets all variants"
+   :resolve :query/all-variants}}
+ }

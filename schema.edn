@@ -1,0 +1,30 @@
+{:objects
+ {:product
+  {:fields {:id {:type Int}
+            :art_nr {:type String}
+            :cost_price {:type Int}
+            :variants {:type (list :variant)
+                          :resolve :get-variants}}}
+  :variant
+  {:fields {:id {:type Int}
+            :variant_number {:type String}
+            :product {:type (list :product)
+                     :resolve :get-products}}}}
+ :mutations
+ {:createArtist
+  {:resolve :create-product
+   :type (list :product)
+   :args {:art_nr {:type String}}}}
+ :queries
+ {:product
+  {:resolve :get-products
+   :type (list :product)
+   :args {:id {:type Int}
+          :limit {:type Int}
+          :articleNumber {:type String}
+          :price {:type Int}}}
+  :variant
+  {:resolve :get-variants
+   :type (list :variant)
+   :args {:id {:type Int}
+          :variantNumber {:type String}}}}}
